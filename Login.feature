@@ -1,23 +1,15 @@
- # Login na plataforma, como consumidor da EBAC-SHOP
+# Login na plataforma, como consumidor da EBAC-SHOP
 
 Funcionalidade: Login na Plataforma após inserir ítens no carrinho
 
-Cenário: Cliente preenche corretamente os dados de acesso
+Esquema do Cenário: Tentativa de login com diferentes combinações de email e senha
     Dado a tela de login da plataforma ao finalizar uma compra
-    Quando eu insiro meu email cadastrado
-    E eu insiro a minha senha cadastrada corretamente
-    Então o site redireciona o usuário à tela de checkout
+    Quando eu insiro "<email>"
+    E eu insiro a "<senha>"
+    Então o site retorna "<resultado>"
 
-Cenário: Cliente insere o email incorreto
-    
-    Dado a tela de login da plataforma ao finalizar uma compra
-    Quando eu insiro meu email cadastrado incorretamente
-    E eu insiro a minha senha cadastrada corretamente
-    Então o site exibe uma mensagem de alerta "Usuário ou senha inválidos"
-
-Cenário: Cliente preenche a senha incorretamente
-    
-    Dado a tela de login da plataforma ao finalizar uma compra
-    Quando eu insiro meu email cadastrado corretamente
-    E eu insiro a minha senha cadastrada incorretamente
-    Então o site exibe uma mensagem de alerta "Usuário ou senha inválidos"
+    Exemplos:
+        | email                   | senha    | resultado                               |
+        | user1@example.com       | senha1   | redireciona o usuário à tela de checkout|
+        | user1@example.com       | senhaErr | exibe uma mensagem de alerta "Usuário ou senha inválidos" |
+        | userErr@example.com     | senha1   | exibe uma mensagem de alerta "Usuário ou senha inválidos" |
